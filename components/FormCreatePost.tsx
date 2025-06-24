@@ -263,7 +263,7 @@ export default function FormCreatePost({
                   render={({ field }) => (
                     <FormItem className="mx-auto">
                       <FormLabel>Cuerpo</FormLabel>
-                      <FormControl className="w-full ">
+                      <FormControl className="w-full">
                         {/* <Textarea
                           {...field}
                           placeholder="Escribe aquí el contenido del post..."

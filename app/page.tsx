@@ -85,6 +85,7 @@ export default async function Home({ searchParams }: any) {
                               height={500}
                               loading="lazy"
                             />
+                            
                             {/* <ImageCredit
                               credit={article.data.slices?.[0].primary.imagen_fuente || ""}
                             /> */}

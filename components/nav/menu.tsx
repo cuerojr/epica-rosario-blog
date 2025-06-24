@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { link } from "fs";
-import { REDES } from "@/lib/constants";
+import { PAGE_INFO, REDES } from "@/lib/constants";
 
 type Props = {
   open?: boolean;
@@ -21,7 +21,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const {
     socialmedia = REDES,
-    email = "rojo@gmail.com",
+    email = PAGE_INFO.email,
     imagen,
     telefono = "3415807001",
     slogan,

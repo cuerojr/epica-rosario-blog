@@ -32,7 +32,7 @@ export const PAGE_INFO = {
     whatsapp: "https://wa.me/5493415555555",
     telegram: "https://t.me/epicarosario",
   },
-  email: "asd@asd.com",
+  email: "asd@gmail.com",
 };
 
 export const REDES = [

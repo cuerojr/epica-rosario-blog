@@ -3,7 +3,7 @@ import React from "react";
 // import { headers } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
-import { REDES } from "@/lib/constants";
+import { PAGE_INFO, REDES } from "@/lib/constants";
 
 const icons = (icon: string) => {
   switch (icon) {
@@ -97,13 +97,12 @@ async function Footer() {
   const footerData: any = {
     footer: 'Épica Rosario © 2023 - Todos los derechos reservados',
     telefono: '+54 341 1234567',
-    email: 'asd@asd.com',
     ubicacion: 'Rosario, Argentina',
     redesSociales: REDES
   };
   
   if (!footerData) return null;
-  const { footer, telefono, email, ubicacion, logo, redesSociales } = footerData;
+  const { footer, telefono, email = PAGE_INFO.email, ubicacion, logo, redesSociales } = footerData;
 
   return (
     <footer className="overflow-hidden bg-primary text-beige px-8 pb-2 ">

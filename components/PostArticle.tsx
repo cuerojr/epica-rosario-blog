@@ -17,7 +17,7 @@ const redesSociales: string[] = [
   'Telegram',
 ];
 
-function PostArticle(article: Post) {
+export default function PostArticle(article: Post) {
   const [htmlOutput, setHtmlOutput] = useState("");
 
   const editor = useEditor({
@@ -77,5 +77,3 @@ function PostArticle(article: Post) {
     </section>
   );
 }
-
-export default PostArticle;

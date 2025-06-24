@@ -7,6 +7,9 @@ import { NavItem } from "./item";
 //import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
+import { link } from "fs";
+import { REDES } from "@/lib/constants";
 
 type Props = {
   open?: boolean;
@@ -16,7 +19,13 @@ type Props = {
 
 export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const { socialmedia, email, imagen, telefono, slogan } = data;
+  const {
+    socialmedia = REDES,
+    email = "rojo@gmail.com",
+    imagen,
+    telefono = "3415807001",
+    slogan,
+  } = data;
 
   useEffect(() => {
     const container = ref.current;
@@ -76,8 +85,17 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
               href={`/${item.uid === "home" ? "" : item.uid}`}
               className="flex flex-row gap-2 text-black font-bold "
             >
-              <span className="decoration-primary decoration-2 hover:underline underline-offset-4">{item.data.title}</span>
-              <span className={cn("hidden no-underline",_ == 1? "last:hidden" : "no-underline")}>/</span>
+              <span className="decoration-primary decoration-2 hover:underline underline-offset-4">
+                {item.data.title}
+              </span>
+              <span
+                className={cn(
+                  "hidden no-underline",
+                  _ == 1 ? "last:hidden" : "no-underline"
+                )}
+              >
+                /
+              </span>
             </NavItem>
           ))}
         </div>
@@ -86,7 +104,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
         <Image
           height={500}
           width={500}
-          src={'/logo.png'}
+          src={"/logo.png"}
           alt="Imagen de fondo del menú"
           loading="eager"
           className="w-full h-full object-cover object-center"
@@ -107,6 +125,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
               </li>
               <li className="col-span-1">
                 <h3 className="opacity-70">email</h3>
+                {email}
                 {/* <PrismicNextLink
                   field={email}
                   className="hover:opacity-70 transition-all duration-200"
@@ -119,13 +138,14 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
             <div className="flex items-center">
               {socialmedia?.map((item: any, i: number) => (
                 <div key={i} className="">
-                  {/* <PrismicNextLink
-                    field={item.link}
+                  <Link
+                    href={item.link}
+                    target="_blank"
                     className="hover:opacity-70 transition-all duration-200"
                   >
                     {item.label}
-                  </PrismicNextLink> */}
-                  <span className={cn("mx-1", i === 2 ? "hidden" : "")}>/</span>
+                  </Link>
+                  <span className={cn("mx-1", i === (socialmedia.length-1) ? "hidden" : "")}>/</span>
                 </div>
               ))}
             </div>

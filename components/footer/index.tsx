@@ -3,6 +3,7 @@ import React from "react";
 // import { headers } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
+import { REDES } from "@/lib/constants";
 
 const icons = (icon: string) => {
   switch (icon) {
@@ -98,10 +99,11 @@ async function Footer() {
     telefono: '+54 341 1234567',
     email: 'asd@asd.com',
     ubicacion: 'Rosario, Argentina',
+    redesSociales: REDES
   };
-  const redesSociales = ['Facebook', 'Instagram', 'X', 'Telegram', 'Whatsapp'];
+  
   if (!footerData) return null;
-  const { footer, telefono, email, ubicacion, logo } = footerData;
+  const { footer, telefono, email, ubicacion, logo, redesSociales } = footerData;
 
   return (
     <footer className="overflow-hidden bg-primary text-beige px-8 pb-2 ">
@@ -136,17 +138,17 @@ async function Footer() {
                   {redesSociales?.map(
                     (item: any, i: number) => {
                       if (
-                        item.toUpperCase() == "TELEGRAM" ||
-                        item.toUpperCase() == "WHATSAPP"
+                        item.label.toUpperCase() == "TELEGRAM" ||
+                        item.label.toUpperCase() == "WHATSAPP"
                       )
                         return;
                       return (
                         <Link
-                          href={item.toLowerCase() ?? '/#'}
-                          className="w-7 h-7 rounded-full border-1 border-[#dfd8cf1a] hover:bg-[#dfd8cf1a] flex justify-center bg-[#ec1c90] items-center transition-all duration-300 ease-in-out"
+                          href={item.link ?? '/#'}
+                          className="w-7 h-7 rounded-full border-1 border-[#dfd8cf1a] hover:opacity-70 flex justify-center bg-[#ec1c90] items-center transition-all duration-300 ease-in-out"
                           key={i}
                         >
-                          {icons(item.toUpperCase())}
+                          {icons(item.label.toUpperCase())}
                         </Link>
                       );
                     }

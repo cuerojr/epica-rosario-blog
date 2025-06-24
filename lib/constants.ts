@@ -1,3 +1,5 @@
+import { Label } from "@radix-ui/react-label";
+import { link } from "fs";
 import { X } from "lucide-react";
 
 export const SITE_NAME = `Épica Rosario`;
@@ -32,3 +34,22 @@ export const PAGE_INFO = {
   },
   email: "asd@asd.com",
 };
+
+export const REDES = [
+  {
+    link: "https://www.instagram.com/epicarosario/",
+    label: "Instagram",
+  },
+  {
+    link: "https://www.facebook.com/epicarosario",
+    label: "Facebook",
+  },
+  {
+    link: "https://x.com/epicarosario",
+    label: "X",
+  },
+  {
+    link: "https://t.me/epicarosario",
+    label: "Telegram",
+  },
+];

@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import { Header } from "@/components/Header";
 import React from "react";
 
@@ -5,7 +6,7 @@ function SomosEpica() {
   return (
     <>
       <Header />
-      <main>
+      <main className="relative container mx-auto mt-20 md:mt-24">
         <section>
           <div className="container mx-auto flex flex-col gap-4 mt-10 min-h-screen px-5 md:px-10">
             <div className="max-w-[800px] mx-auto flex flex-col gap-4 my-10 md:my-20 text-balance">
@@ -38,6 +39,7 @@ function SomosEpica() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

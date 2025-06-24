@@ -27,5 +27,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/admin", "/estado/:path*", "/bienvenido", "/finalizado"],
+  matcher: ["/admin", "/admin/:path*"],
 };

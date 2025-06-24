@@ -4,12 +4,12 @@ import {
 } from '@prisma/client';
 
 export async function createPost(data: PostDbType) {
+
   return await db.post.create({
     data: {
       titulo: data.titulo,
       bajada: data.bajada,
       cuerpo: data.cuerpo,
-      imagen: data.imagen,
       slug: data.slug,
       categoriaId: data.categoriaId,
       createdById: data.createdById,

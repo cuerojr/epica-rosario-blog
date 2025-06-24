@@ -7,8 +7,6 @@ export default withAuth(
       req.nextUrl.pathname.startsWith("/admin") &&
       req.nextauth.token?.role !== "ADMIN"
     ) {
-      console.log("role", req.nextauth.token?.role)
-      console.log("path", req.nextUrl.pathname.startsWith("/admin"))
       return NextResponse.rewrite(new URL("/denied", req.url));
     }
 
@@ -16,7 +14,7 @@ export default withAuth(
       (req.nextUrl.pathname.startsWith("/bienvenido") ||
         req.nextUrl.pathname.startsWith("/finalizado") ||
         req.nextUrl.pathname.startsWith("/estado")) &&
-      req.nextauth.token?.role !== "USER"
+        req.nextauth.token?.role !== "USER"
     ) {
       return NextResponse.rewrite(new URL('/admin', req.url))
     }
@@ -29,5 +27,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/admin", "/estado/:path*", "/bienvenido", "/finalizado"],
+  matcher: ["/admin", "/admin/:path*"],
 };

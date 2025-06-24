@@ -21,9 +21,10 @@ import Image from "next/image";
 const getCachedEncuesta = cache(async () => await getAllPosts());
 
 export default async function Dashboard() {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);  
   if (!session || !session.user) redirect("/");
   const data = await getCachedEncuesta();
+  
   return (
     <main className="my-10 container mx-auto">
       <section className="">

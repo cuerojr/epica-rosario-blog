@@ -43,26 +43,26 @@ export default function AdminDropDown({
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>¡Hola {session.user.name}!</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {session.user.role === "USER" ? (
+        {session.user.role === "ADMIN" && (
           <>
             <DropdownMenuItem>
-              <Link href={"/bienvenido"} className="cursor-pointer w-[100%]">
-                Bienvenida
+              <Link href={"/admin"} className="cursor-pointer w-[100%]">
+                Dashboard
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href={"/estado"} className="cursor-pointer w-[100%]">
-                Estado
+              <Link href={"/admin/nuevo-post"} className="cursor-pointer w-[100%]">
+                Crear Post
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            {/* <DropdownMenuItem>
               <Link href={"/finalizado"} className="cursor-pointer w-[100%]">
                 Más del estudio
               </Link>
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
             <DropdownMenuSeparator />
           </>
-        ) : null}
+        )}
         <Button
           onClick={() =>
             signOut({

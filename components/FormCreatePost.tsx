@@ -106,15 +106,15 @@ export default function FormCreatePost({
       titulo,
       bajada,
       cuerpo,
-      imagen,
-      endDate: new Date("2025-12-31T00:00:00.000Z"), // formato ISO
+      imagen: null,
+      endDate: new Date("2026-12-31T00:00:00.000Z"), // formato ISO
       isActive: true,
       hasEnded: false,
       slug: slug,
       categoriaId: value.categorias,
       id: "",
       createdAt: new Date(),
-      updatedAt: new Date("2025-12-31T00:00:00.000Z"),
+      updatedAt: new Date(),
     };
 
     const response = await createPost(postData);

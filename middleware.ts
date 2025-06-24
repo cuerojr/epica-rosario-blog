@@ -7,17 +7,17 @@ export default withAuth(
       req.nextUrl.pathname.startsWith("/admin") &&
       req.nextauth.token?.role !== "ADMIN"
     ) {
-      return NextResponse.rewrite(new URL("/denied", req.url));
+      return NextResponse.rewrite(new URL("/", req.url));
     }
 
-    if (
-      (req.nextUrl.pathname.startsWith("/bienvenido") ||
-        req.nextUrl.pathname.startsWith("/finalizado") ||
-        req.nextUrl.pathname.startsWith("/estado")) &&
-      req.nextauth.token?.role !== "USER"
-    ) {
-      return NextResponse.rewrite(new URL('/admin', req.url))
-    }
+    // if (
+    //   (req.nextUrl.pathname.startsWith("/bienvenido") ||
+    //     req.nextUrl.pathname.startsWith("/finalizado") ||
+    //     req.nextUrl.pathname.startsWith("/estado")) &&
+    //   req.nextauth.token?.role !== "USER"
+    // ) {
+    //   return NextResponse.rewrite(new URL('/admin', req.url))
+    // }
   },
   {
     callbacks: {
@@ -27,5 +27,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/admin", "/estado/:path*", "/bienvenido", "/finalizado"],
+  matcher: ["/admin", "/admin/:path*"],
 };

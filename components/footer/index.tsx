@@ -95,14 +95,21 @@ const icons = (icon: string) => {
 
 async function Footer() {
   const footerData: any = {
-    footer: 'Épica Rosario © 2023 - Todos los derechos reservados',
-    telefono: '+54 341 1234567',
-    ubicacion: 'Rosario, Argentina',
-    redesSociales: REDES
+    footer: "Épica Rosario © 2023 - Todos los derechos reservados",
+    telefono: "+54 341 1234567",
+    ubicacion: "Rosario, Argentina",
+    redesSociales: REDES,
   };
-  
+
   if (!footerData) return null;
-  const { footer, telefono, email = PAGE_INFO.email, ubicacion, logo, redesSociales } = footerData;
+  const {
+    footer,
+    telefono,
+    email = PAGE_INFO.email,
+    ubicacion,
+    logo,
+    redesSociales,
+  } = footerData;
 
   return (
     <footer className="overflow-hidden bg-primary text-beige px-8 pb-2 ">
@@ -110,7 +117,7 @@ async function Footer() {
         <div className="footer-inner z-20 flex flex-col justify-between gap-4 h-full">
           <Link href="#" className="">
             <Image
-              src={'/logo.png'}
+              src={"/logo.png"}
               width={500}
               height={500}
               alt="Logo de Épica Rosario"
@@ -134,35 +141,28 @@ async function Footer() {
             <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-2">
               <div className="flex items-center gap-2 my-2">
                 <div className="flex gap-3">
-                  {redesSociales?.map(
-                    (item: any, i: number) => {
-                      if (
-                        item.label.toUpperCase() == "TELEGRAM" ||
-                        item.label.toUpperCase() == "WHATSAPP"
-                      )
-                        return;
-                      return (
-                        <Link
-                          href={item.link ?? '/#'}
-                          className="w-7 h-7 rounded-full border-1 border-[#dfd8cf1a] hover:opacity-70 flex justify-center bg-[#ec1c90] items-center transition-all duration-300 ease-in-out"
-                          key={i}
-                        >
-                          {icons(item.label.toUpperCase())}
-                        </Link>
-                      );
-                    }
-                  )}
+                  {redesSociales?.map((item: any, i: number) => {
+                    if (
+                      item.label.toUpperCase() == "TELEGRAM" ||
+                      item.label.toUpperCase() == "WHATSAPP"
+                    )
+                      return;
+                    return (
+                      <Link
+                        href={item.link ?? "/#"}
+                        className="w-7 h-7 rounded-full border-1 border-[#dfd8cf1a] hover:opacity-70 flex justify-center bg-[#ec1c90] items-center transition-all duration-300 ease-in-out"
+                        key={i}
+                      >
+                        {icons(item.label.toUpperCase())}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
 
               <span className="overflow-hidden flex flex-col">
                 <span className="button-text font-sans font-light uppercase text-xs md:text-md tracking-wide">
-                  <Link
-                    href={email}
-                    className="hover:opacity-70 transition-all duration-200"
-                  >
-                    {email}
-                    </Link>
+                  {email}
                 </span>
               </span>
             </div>

@@ -77,7 +77,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
       className={`pt-16 w-full bg-white font-serif  border-b-1 border-gray-300 font-light grid grid-cols-12 gap-5 z-40 justify-center fixed top-0 left-0 h-screen invisible`}
       ref={ref}
     >
-      <div className="px-10 flex flex-col justify-end items-start gap-4 col-span-12 md:col-span-6 text-5xl font-light pb-4">
+      <div className="px-10 order-2 flex flex-col justify-end items-start gap-4 col-span-12 md:col-span-6 text-5xl font-light pb-4">
         <div className="flex flex-col gap-2">
           {items.map((item, _) => (
             <NavItem
@@ -85,7 +85,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
               href={`/${item.uid === "home" ? "" : item.uid}`}
               className="flex flex-row gap-2 text-black font-bold "
             >
-              <span className="decoration-primary decoration-2 hover:underline underline-offset-4">
+              <span className="decoration-[#ec1c90] decoration-3 hover:underline underline-offset-8">
                 {item.data.title}
               </span>
               <span
@@ -100,14 +100,14 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
           ))}
         </div>
       </div>
-      <div className="relative overflow-hidden col-span-12 md:col-span-6">
+      <div className="relative order-1 overflow-hidden col-span-12 md:col-span-6">
         <Image
           height={500}
           width={500}
-          src={"/logo.png"}
+          src={"/Diana_la_cazadora,_Rosario,_Argentina.jpg"}
           alt="Imagen de fondo del menú"
           loading="eager"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-auto object-cover object-center"
         />
         <p className="text-4xl text-beige font-serif font-light absolute p-5 left-0 bottom-0 z-[22] max-w-[50%] text-balance">
           {slogan}
@@ -115,8 +115,8 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
         <div className="gradient-cover-top z-20"></div>
         <div className="gradient-cover-bottom z-20"></div>
       </div>
-      <div className="col-span-12 pb-4">
-        <div className="grid grid-cols-2 items-center px-10 h-full">
+      <div className="col-span-12 order-3 pb-4">
+        <div className="grid grid-cols-2 items-center gap-2 md:gap-0 px-10 h-full">
           <div className="col-span-2 md:col-span-1 menu-footer__item text-xs font-sans text-green uppercase ">
             <ul className="grid grid-cols-2 gap-2">
               <li className="col-span-1">

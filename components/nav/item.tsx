@@ -18,7 +18,7 @@ export function NavItem({ children, className, href, ...rest }: Props) {
       href={href}
       className={cn(
         className,
-        pathname === href && 'underline underline-offset-4 decoration-2 decoration-primary',
+        pathname === href && 'underline underline-offset-8 decoration-3 decoration-[#ec1c90]',
       )}
       {...rest}
     >

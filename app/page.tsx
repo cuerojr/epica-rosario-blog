@@ -24,6 +24,7 @@ import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 import ArticleDate from "@/components/ArticleDate";
 import Footer from "@/components/footer";
+import ArticlesHomeContainer from "@/components/ArticlesHomeContainer";
 
 type PageMetaParams = {
   data?: {
@@ -64,50 +65,7 @@ export default async function Home({ searchParams }: any) {
               <h2 className="col-span-1 md:col-span-3 text-3xl text-[#ec1c90] font-black font-serif uppercase">
                 Ultimas Noticias
               </h2>
-              {data.slice(4, 15).map((article, index) => {
-                return (
-                  <ArticleHomeCard key={article.id} style="h-full bg-white col-span-2 overflow-hidden text-black hover:border-[var(--magenta)] hover:text-[var(--magenta)] transition-all duration-300 ease-in-out">
-                    <article className="col-span-2 block">
-                      <Link
-                        href={`/${article?.slug}`}
-                        className="flex flex-col gap-4"
-                      >
-                        <div className="w-5/5 font-serif w-full">
-                          <div className="aspect-square overflow-hidden relative rounded-lg">
-                            <Image
-                              src={
-                                article.imagen ||
-                                "https://res.cloudinary.com/dxvxzikri/image/upload/c_thumb,w_200,g_face/v1695419795/typy1gob56motmzkatzc.webp"
-                              }
-                              alt="Imagen principal del artículo"
-                              className="w-full h-full object-cover object-center "
-                              width={500}
-                              height={500}
-                              loading="lazy"
-                            />
-                            
-                            {/* <ImageCredit
-                              credit={article.data.slices?.[0].primary.imagen_fuente || ""}
-                            /> */}
-                          </div>
-                        </div>
-                        <div className="w-5/5 py-4 flex flex-col gap-4 font-serif w-full mb-4 border-b border-[#ec1c90]">
-                          <h2 className="text-2xl lg:text-3xl font-semibold text-black leading-tight text-pretty">
-                            {article.titulo}
-                          </h2>
-                          <p className="text-sm text-black font-light leading-snug text-pretty">
-                            {article.bajada}
-                          </p>
-                          <ArticleDate
-                            style="text-sm text-white font-light text-xs text-right"
-                            date={article?.createdAt}
-                          />
-                        </div>
-                      </Link>
-                    </article>
-                  </ArticleHomeCard>
-                );
-              })}
+              <ArticlesHomeContainer data={data} />
               {/* {data.slice(4, 15).map((article, index) => {
               return <ArticleHomeCard key={article.id} article={article} />;
             })} */}
@@ -128,9 +86,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: data?.titulo || SITE_NAME,
       description: data?.bajada || SITE_DESCRPTION,
-      images: data?.imagen
-        ? data?.imagen
-        : undefined,
+      images: data?.imagen ? data?.imagen : undefined,
     },
   };
 }

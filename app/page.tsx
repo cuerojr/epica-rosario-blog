@@ -25,6 +25,7 @@ import Image from "next/image";
 import ArticleDate from "@/components/ArticleDate";
 import Footer from "@/components/footer";
 import ArticlesHomeContainer from "@/components/ArticlesHomeContainer";
+import EventMarquee from "@/components/marquee/marquee";
 
 type PageMetaParams = {
   data?: {
@@ -58,6 +59,9 @@ export default async function Home({ searchParams }: any) {
               })}
             </div>
           </div>
+        </section>
+        <section>
+          <EventMarquee posts={data.slice(0, 4)} />
         </section>
         <section>
           <div className="container mx-auto px-4 md:p-10">

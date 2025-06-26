@@ -69,7 +69,7 @@ export default function PostArticle(article: Post) {
         </div>
         <div className="max-w-[800px] mx-auto flex flex-col gap-4 my-20">
           <div
-            className="space-y-4"
+            className="space-y-4 md:text-xl text-justify"
             dangerouslySetInnerHTML={{ __html: htmlOutput }}
           />
         </div>

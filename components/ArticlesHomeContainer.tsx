@@ -37,7 +37,7 @@ export default function ArticlesHomeContainer({ data }: { data: any }) {
               <h2 className="text-2xl lg:text-3xl font-semibold text-black leading-tight text-pretty">
                 {article.titulo}
               </h2>
-              <p className="text-sm text-black font-light leading-snug text-pretty">
+              <p className="text-sm md:text-xl text-black leading-snug text-pretty">
                 {article.bajada}
               </p>
               <ArticleDate

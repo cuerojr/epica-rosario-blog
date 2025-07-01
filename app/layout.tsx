@@ -17,7 +17,7 @@ import {
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header } from "@/components/Header";
 
-// import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react"
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -55,8 +55,8 @@ export default async function RootLayout({
           <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
         )}
         <Toaster />
-        {/* <Analytics/>
-        <SpeedInsights/> */}
+        <Analytics/>
+        {/* <SpeedInsights/> */}
         
       </body>
     </html>

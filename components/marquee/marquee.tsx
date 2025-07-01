@@ -51,12 +51,9 @@ export default function EventMarquee({ posts }: { posts: any[] }) {
                 href={`/${post.slug}`}
                 className="flex gap-2 items-end hover:text-[#ec1c90] "
               >
-                <span className="font-black tracking-widest">
+                <span className="font-black">
                   {post.titulo}
                 </span>
-                <span className="font-bold text-xl tracking-widest">
-                  {/* {datesFormater(post.createdAt as string)} */}
-                </span>{" "}
                 <span className="ml-2 font-black">/</span>
               </Link>
             </div>

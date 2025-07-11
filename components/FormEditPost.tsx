@@ -48,6 +48,10 @@ const formSchema = z.object({
   bajada: z.string().optional(),
   cuerpo: z.string().optional(),
   imagen: z.string().optional(),
+  imagen2: z.string().optional(),
+  imagen3: z.string().optional(),
+  imagen4: z.string().optional(),
+  imagen5: z.string().optional(),
   slug: z.string().optional(),
   categorias: z.string().optional(),
 });
@@ -58,6 +62,10 @@ type PostData = {
   bajada: string;
   cuerpo: string;
   imagen: string;
+  imagen2: string;
+  imagen3: string;
+  imagen4: string;
+  imagen5: string;
   slug: string;
   categorias?: string;
 };
@@ -82,6 +90,10 @@ export default function FormEditPost({
       bajada: data?.bajada,
       cuerpo: data?.cuerpo,
       imagen: data?.imagen,
+      imagen2: data?.imagen2,
+      imagen3: data?.imagen3,
+      imagen4: data?.imagen4,
+      imagen5: data?.imagen5,
       slug: data?.slug,
       categorias: data?.categorias,
     },
@@ -89,7 +101,7 @@ export default function FormEditPost({
 
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
-  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [uploadedImage, setUploadedImage] = useState<string[]>([]);
   const router = useRouter();
   // const [debouncedValue, setDebouncedValue] = useState<string>(form.getValues("textField"));
   const timerRef = useRef<number | undefined>();
@@ -105,6 +117,10 @@ export default function FormEditPost({
       bajada: value.bajada,
       cuerpo: value.cuerpo,
       imagen: value.imagen,
+      imagen2: value.imagen2,
+      imagen3: value.imagen3,
+      imagen4: value.imagen4,
+      imagen5: value.imagen5,
       slug: value.slug,
       categoriaId: value.categorias,
     };
@@ -120,26 +136,103 @@ export default function FormEditPost({
     }
   };
 
-  const handleImageUpload = (url: string) => {
-    form.setValue("imagen", url);
-    setUploadedImage(url);
+  const handleImageUpload = (urls: string[]) => {
+    console.log("🚀 ~ handleImageUpload ~ urls:", urls);
+
+    if (urls[0]) {
+      form.setValue("imagen", urls[0]);
+    }
+    
+    if (urls[1]) {
+      form.setValue("imagen2", urls[1]);
+    }
+    
+    if (urls[2]) {
+      form.setValue("imagen3", urls[2]);
+    }
+    
+    if (urls[3]) {
+      form.setValue("imagen4", urls[3]);
+    }
+    
+    if (urls[4]) {
+      form.setValue("imagen5", urls[4]);
+    }
+    
+    setUploadedImage(urls);
   };
 
   return (
     <div className="flex flex-col gap-4 md:gap-10 py-8 md:flex-row">
       <div className="w-full lg:w-1/3">
-        <div className="border rounded-lg aspect-square overflow-hidden">
-          <CldImage
-            src={
-              uploadedImage ||
-              data?.imagen ||
-              "https://res.cloudinary.com/dxvxzikri/image/upload/c_thumb,w_200,g_face/v1695419795/typy1gob56motmzkatzc.webp"
-            }
-            alt={data?.titulo}
-            className="object-cover w-full h-full"
-            width={500}
-            height={500}
-          />
+        <div className="">
+          <div className="rounded-lg aspect-square overflow-hidden">
+            <CldImage
+              src={
+                uploadedImage[0] ||
+                data?.imagen ||
+                "https://res.cloudinary.com/dxvxzikri/image/upload/v1750266532/nbe6zwl4lpwl9e6ybnnv.png"
+              }
+              alt={data?.titulo}
+              className="object-cover w-full h-full"
+              width={500}
+              height={500}
+            />
+          </div>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <div className="aspect-square rounded-lg w-1/4 overflow-hidden">
+              <CldImage
+                src={
+                  uploadedImage[1] ||
+                  data?.imagen2 ||
+                  "https://res.cloudinary.com/dxvxzikri/image/upload/v1750266532/nbe6zwl4lpwl9e6ybnnv.png"
+                }
+                alt={data?.titulo}
+                className="object-cover w-full h-full"
+                width={50}
+                height={50}
+              />
+            </div>
+            <div className="aspect-square rounded-lg w-1/4 overflow-hidden">
+              <CldImage
+                src={
+                  uploadedImage[2] ||
+                  data?.imagen3 ||
+                  "https://res.cloudinary.com/dxvxzikri/image/upload/v1750266532/nbe6zwl4lpwl9e6ybnnv.png"
+                }
+                alt={data?.titulo}
+                className="object-cover w-full h-full"
+                width={50}
+                height={50}
+              />
+            </div>
+            <div className="aspect-square rounded-lg w-1/4 overflow-hidden">
+              <CldImage
+                src={
+                  uploadedImage[3] ||
+                  data?.imagen4 ||
+                  "https://res.cloudinary.com/dxvxzikri/image/upload/v1750266532/nbe6zwl4lpwl9e6ybnnv.png"
+                }
+                alt={data?.titulo}
+                className="object-cover w-full h-full"
+                width={50}
+                height={50}
+              />
+            </div>
+            <div className="aspect-square rounded-lg w-1/4 overflow-hidden">
+              <CldImage
+                src={
+                  uploadedImage[4] ||
+                  data?.imagen5 ||
+                  "https://res.cloudinary.com/dxvxzikri/image/upload/v1750266532/nbe6zwl4lpwl9e6ybnnv.png"
+                }
+                alt={data?.titulo}
+                className="object-cover w-full h-full"
+                width={50}
+                height={50}
+              />
+            </div>
+          </div>
         </div>
         <Button variant={"link"} asChild>
           <ImageUploadButton onUpload={handleImageUpload} />

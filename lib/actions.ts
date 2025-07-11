@@ -10,6 +10,8 @@ import * as Users from "@/lib/api/users";
 import * as Categoria from "@/lib/api/categories";
 import * as Posts from "@/lib/api/posts";
 
+import cloudinary, { deleteFile, uploadFile } from "@/lib/cloudinary-upload";
+
 import {
   Post as PostDbType,
 } from '@prisma/client';
@@ -122,5 +124,39 @@ export async function deletesPost(id: string) {
   } catch (error) {
     console.log("Error eliminando el post:", error);
     throw new Error("Error eliminando el post");
+  }
+}
+
+export async function uploadEventImage(formData: any) {
+  const file = formData.get("file") as File;
+  if (!file) return { ok: false, status: 400 };
+  try {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const fileName = file.name.split(".")[0];
+    const res = (await uploadFile(
+      buffer,
+      `${process.env.CLIENT_ID}`,
+      fileName
+    )) as {
+      secure_url: string;
+      public_id: string;
+      format: string;
+    };
+    return {
+      url: res.secure_url,
+      publicId: res.public_id,
+      format: res.format,
+    };
+  } catch (error) {
+    //throw new Error("Error trayendo las entradas vendidas");
+    return { ok: false, status: 400 };
+  }
+}
+
+export async function deleteEventImage(publicId: string) {
+  try {
+    return await deleteFile(publicId);
+  } catch (error) {
+    throw new Error("Error eliminando la imagen");
   }
 }

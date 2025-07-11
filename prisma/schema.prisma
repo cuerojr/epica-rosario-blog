@@ -25,6 +25,10 @@ model Post {
   bajada        String?
   cuerpo        String?
   imagen        String?
+  imagen2        String?
+  imagen3        String?
+  imagen4        String?
+  imagen5        String?
   slug          String?       @unique
   createdBy     User          @relation(fields: [createdById], references: [id])
   createdById   String

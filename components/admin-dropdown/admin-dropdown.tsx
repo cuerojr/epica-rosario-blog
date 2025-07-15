@@ -47,19 +47,14 @@ export default function AdminDropDown({
           <>
             <DropdownMenuItem>
               <Link href={"/admin"} className="cursor-pointer w-[100%]">
-                Dashboard
+                Noticias
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href={"/admin/nuevo-post"} className="cursor-pointer w-[100%]">
-                Crear Post
+              <Link href={"/admin/pdfs"} className="cursor-pointer w-[100%]">
+                LED Pdfs
               </Link>
             </DropdownMenuItem>
-            {/* <DropdownMenuItem>
-              <Link href={"/finalizado"} className="cursor-pointer w-[100%]">
-                Más del estudio
-              </Link>
-            </DropdownMenuItem> */}
             <DropdownMenuSeparator />
           </>
         )}

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const pages = [
   { uid: "", data: { title: "Inicio" } },
   { uid: "nosotros", data: { title: "Nosotros" } },
+  { uid: "laboratorio-estadistico-del-delito", data: { title: "LED" } },
 ];
 
 // type HeaderProps = {

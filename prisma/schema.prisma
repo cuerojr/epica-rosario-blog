@@ -16,6 +16,7 @@ model Blog {
   bloggers    User[]
   posts       Post[]
   categorias  Categoria[]
+  files       File[]
 }
 
 // Modelo para representar una encuesta
@@ -49,10 +50,21 @@ model Categoria {
   slug        String?       @unique  
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
-
   Blog        Blog[]
-
   Post        Post[]
+}
+
+//model para representar un archivo pdf
+model File {
+  id            String      @id @default(uuid())
+  name          String
+  url           String
+  fileType      String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  createdBy     User        @relation(fields: [createdById], references: [id])
+  createdById   String
+  Blog          Blog[]
 }
 
 model User {
@@ -78,6 +90,8 @@ model User {
   passwordReserToken PasswordReserToken[]
 
   Blog Blog[]
+
+  File File[]
 }
 
 model PasswordReserToken {

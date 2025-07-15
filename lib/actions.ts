@@ -9,9 +9,15 @@ import { TUser, TLoginUser } from "@/types/user";
 import * as Users from "@/lib/api/users";
 import * as Categoria from "@/lib/api/categories";
 import * as Posts from "@/lib/api/posts";
+import * as Files from "@/lib/api/files";
 
 import {
   Post as PostDbType,
+  Prisma,
+} from '@prisma/client';
+
+import {
+  File as FileDbType,
 } from '@prisma/client';
 
 export async function createUser(data: TUser) {
@@ -122,5 +128,33 @@ export async function deletesPost(id: string) {
   } catch (error) {
     console.log("Error eliminando el post:", error);
     throw new Error("Error eliminando el post");
+  }
+}
+
+export async function uploadFile(data: Prisma.FileUncheckedCreateInput) {
+  try {
+    return await Files.uploadFile(data);
+  } catch (error) {
+    console.log("Error creando el post:", error);
+    throw new Error("Error creando el post");
+  }
+}
+
+export async function getAllPDFFiles() {
+  try {
+    return await Files.getAllPDFFiles();
+  } catch (error: any) {
+    console.log(error);
+    throw Error("Error getAllCategorias", error);
+  }
+}
+
+export async function getPDFFilebyId(id: string) {
+  try {
+    const response = await Files.getPDFFilebyId(id);
+    return response;
+  } catch (error: any) {
+    console.log(error);
+    throw Error("Error getAllEncuestas", error);
   }
 }

@@ -136,7 +136,7 @@ function ArticleSocialButtons({
 
         const shareUrl = social.url(pageUrl);
         const title = social.title ? social.title(pageUrl) : "";
-        const media = "https://epicarosario.com.ar/_next/image?url=%2Flogo.png&w=640&q=75";
+        const media = social.media ? social.media(pageUrl) : "";
         const Button = social.Button;
 
         if (typeof Button === "string") {

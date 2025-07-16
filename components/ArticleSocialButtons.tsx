@@ -46,7 +46,7 @@ const socialOptions: any = {
   },
   X: {
     url: (url: string) => `${SITE_URL}/${encodeURIComponent(url)}`,
-    related: (text: string) => `&related=epicarosario`,
+    title: (url: string) => `${encodeURIComponent(url)}`,
     Button: TwitterShareButton, // react-share aún usa `TwitterShareButton`
     icon: (
       <svg
@@ -133,6 +133,7 @@ function ArticleSocialButtons({
         if (!social) return null;
 
         const shareUrl = social.url(pageUrl);
+        const title = social.title ? social.title(pageUrl) : "";
         const Button = social.Button;
 
         if (typeof Button === "string") {
@@ -153,6 +154,7 @@ function ArticleSocialButtons({
           <Button
             key={key}
             url={shareUrl}
+            title={title}
             className="p-2 rounded hover:bg-gray-100 transition"
           >
             {social.icon}

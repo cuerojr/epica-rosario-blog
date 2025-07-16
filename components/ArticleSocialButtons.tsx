@@ -46,7 +46,6 @@ const socialOptions: any = {
   },
   X: {
     url: (url: string) => `${SITE_URL}/${encodeURIComponent(url)}`,
-    title: (url: string) => `${encodeURIComponent(url)}`,
     media: (url: string) => `${SITE_URL}/${encodeURIComponent(url)}`,
     // Button: XShareButton, // react-share
     Button: TwitterShareButton, // react-share aún usa `TwitterShareButton`

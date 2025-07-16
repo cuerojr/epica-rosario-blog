@@ -21,11 +21,18 @@ import { uploadFile } from "@/lib/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Prisma } from "@prisma/client";
 import { LoaderCircle } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "El nombre es obligatorio" }),
   url: z.string().optional(),
-  fileType: z.enum(["pdf", "image"]).default("pdf"),
+  fileType: z.enum(["LED", "LSE"]).default("LED"),
   createdById: z.string().optional(),
 });
 
@@ -39,7 +46,7 @@ export default function UploadForm({ user }: { user?: User }) {
     defaultValues: {
       name: "",
       url: "",
-      fileType: "pdf",
+      fileType: "LED",
       createdById: user?.id,
     },
   });
@@ -65,6 +72,7 @@ export default function UploadForm({ user }: { user?: User }) {
   };
 
   const onSubmit = async (value: any) => {
+    console.log("🚀 ~ onSubmit ~ value:", value)
     setIsLoading(true);
 
     try {
@@ -97,12 +105,12 @@ export default function UploadForm({ user }: { user?: User }) {
         return;
       }
 
-      const { name } = value;
+      const { name, fileType } = value;
       const postData: Prisma.FileUncheckedCreateInput = {
         createdById: user?.id!,
         name,
         url: uploadedUrl,
-        fileType: "pdf",
+        fileType,
         createdAt: new Date(),
       };
 
@@ -164,6 +172,37 @@ export default function UploadForm({ user }: { user?: User }) {
                   <FormControl>
                     <Input placeholder="Nombre del archivo" {...field} />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="flex-auto w-full">
+            <FormField
+              control={form.control}
+              name="fileType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tipo de archivo</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Seleccioná una categoría" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="LED">LED</SelectItem>
+                      <SelectItem value="LSE">LSE</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {/* <FormDescription>
+                                    You can manage email addresses in your{" "}
+                                    <Link href="/examples/forms">email settings</Link>.
+                                  </FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}

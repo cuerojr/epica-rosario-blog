@@ -140,9 +140,17 @@ export async function uploadFile(data: Prisma.FileUncheckedCreateInput) {
   }
 }
 
-export async function getAllPDFFiles() {
+export async function getAllPDFFiles(type: string) {
   try {
-    return await Files.getAllPDFFiles();
+    return await Files.getAllPDFFiles(type);
+  } catch (error: any) {
+    console.log(error);
+    throw Error("Error getAllCategorias", error);
+  }
+}
+export async function getAllPDF() {
+  try {
+    return await Files.getAllPDF();
   } catch (error: any) {
     console.log(error);
     throw Error("Error getAllCategorias", error);

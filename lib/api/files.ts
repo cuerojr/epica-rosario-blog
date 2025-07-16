@@ -24,38 +24,19 @@ export async function getPDFFilebyId(id: string) {
   });
 }
 
-export async function getAllPDFFiles() {
+export async function getAllPDFFiles(type: string) {
   return await db.file.findMany({
     where: {
-      fileType: "pdf",
+      fileType: type,
     }
   });
 }
 
-export async function getEncuestaInfo() {
+export async function getAllPDF() {
   return await db.file.findMany({
-    // include: {
-    //   tecnologias: {
-    //     include: {
-    //       enunciados: {
-    //         select: {
-    //           slug: true,
-    //         },
-    //       },
-    //     },
-    //     orderBy: {
-    //       id: "asc", // or 'desc' for descending order
-    //     },
-    //   },
-    //   createdBy: {
-    //     select: {
-    //       id: true,
-    //       name: true,
-    //       lastName: true,
-    //       email: true,
-    //     },
-    //   },
-    // },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 }
 export async function updatePost(postId: string, data: any) {

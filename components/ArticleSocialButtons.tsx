@@ -45,7 +45,7 @@ const socialOptions: any = {
     ),
   },
   X: {
-    url: (url: string) => `${SITE_URL}/${encodeURIComponent(url)}&via=epicarosario&related=epicarosario`,
+    url: (url: string) => `${SITE_URL}/${encodeURIComponent(url)}`,
     Button: TwitterShareButton, // react-share aún usa `TwitterShareButton`
     icon: (
       <svg

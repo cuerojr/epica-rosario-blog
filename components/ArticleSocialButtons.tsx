@@ -157,7 +157,7 @@ function ArticleSocialButtons({
         return (
           <Button
             key={key}
-            //url={shareUrl}
+            url={shareUrl}
             title={title}
             media={media}
             className="p-2 rounded hover:bg-gray-100 transition"

@@ -62,6 +62,7 @@ export default function PostArticle(article: Post) {
               <ArticleSocialButtons
                 redes={redesSociales}
                 pageUrl={article?.slug ?? ""}
+                pageTitle={article?.titulo ?? ""}
               />
               <ArticleDate date={article?.createdAt ?? ""} style="text-gray-600"/>
             </div>

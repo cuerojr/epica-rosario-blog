@@ -123,9 +123,11 @@ const socialOptions: any = {
 function ArticleSocialButtons({
   redes,
   pageUrl,
+  pageTitle
 }: {
   redes: any[];
   pageUrl: string;
+  pageTitle: string;
 }) {
   return (
     <div className="flex gap-2">
@@ -134,7 +136,7 @@ function ArticleSocialButtons({
         if (!social) return null;
 
         const shareUrl = social.url(pageUrl);
-        const title = social.title ? social.title(pageUrl) : "";
+        const title = pageTitle;
         const media = social.media ? social.media(pageUrl) : "";
         const Button = social.Button;
 
@@ -155,7 +157,7 @@ function ArticleSocialButtons({
         return (
           <Button
             key={key}
-            url={shareUrl}
+            //url={shareUrl}
             title={title}
             media={media}
             className="p-2 rounded hover:bg-gray-100 transition"

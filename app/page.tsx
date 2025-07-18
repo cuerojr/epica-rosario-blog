@@ -67,7 +67,7 @@ export default async function Home({ searchParams }: any) {
           <div className="container mx-auto px-4 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6 p-0 md:p-10">
               <h2 className="col-span-1 md:col-span-3 text-3xl text-[#ec1c90] font-black font-serif uppercase">
-                Ultimas Noticias
+                Últimas Noticias
               </h2>
               <ArticlesHomeContainer data={data} />
               {/* {data.slice(4, 15).map((article, index) => {

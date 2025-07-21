@@ -28,7 +28,10 @@ export async function getAllPDFFiles(type: string) {
   return await db.file.findMany({
     where: {
       fileType: type,
-    }
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 }
 

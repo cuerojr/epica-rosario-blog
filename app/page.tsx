@@ -75,7 +75,7 @@ export default async function Home({ searchParams }: any) {
               </h2>
               
               <div className="hidden md:block self-start col-span-1 md:col-start-3 row-start-2">
-                <AdsButton />
+                <AdsButton cuadrado={true} />
               </div>
               <div className="col-span-1 md:col-span-2 grid grid-cols-1 row-start-2">
                 <ArticlesHomeContainer data={data} />

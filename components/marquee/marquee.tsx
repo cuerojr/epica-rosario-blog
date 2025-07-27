@@ -49,7 +49,7 @@ export default function EventMarquee({ posts }: { posts: any[] }) {
             <div className="text-2xl md:text-5xl gradient-marquee hover:text-white transition-colors text-stroke uppercase">
               <Link
                 href={`/${post.slug}`}
-                className="flex gap-2 items-end hover:text-[#ec1c90] "
+                className="flex gap-2 items-end hover:text-[#ed2866] "
               >
                 <span className="font-black">
                   {post.titulo}

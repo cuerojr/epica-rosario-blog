@@ -10,7 +10,7 @@ export default function ArticlesHomeContainer({ data }: { data: any }) {
     return (
       <ArticleHomeCard
         key={article.id}
-        style="h-full bg-white col-span-2 overflow-hidden text-black hover:border-[var(--magenta)] hover:text-[var(--magenta)] transition-all duration-300 ease-in-out"
+        style="h-full bg-white col-span-1 overflow-hidden text-black hover:border-[var(--magenta)] hover:text-[var(--magenta)] transition-all duration-300 ease-in-out"
       >
         <article className="col-span-2 block">
           <Link href={`/${article?.slug}`} className="flex flex-col gap-4">
@@ -33,7 +33,7 @@ export default function ArticlesHomeContainer({ data }: { data: any }) {
                             /> */}
               </div>
             </div>
-            <div className="w-5/5 py-4 flex flex-col gap-4 font-serif w-full mb-4 border-b border-[#ec1c90]">
+            <div className="w-5/5 py-4 flex flex-col gap-4 font-serif w-full mb-4 border-b border-[#ed2866]">
               <h2 className="text-2xl lg:text-3xl font-semibold text-black leading-tight text-pretty">
                 {article.titulo}
               </h2>

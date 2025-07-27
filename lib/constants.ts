@@ -33,6 +33,7 @@ export const PAGE_INFO = {
     telegram: "https://t.me/epicarosario",
   },
   email: "epicarosario@gmail.com",
+  telefono: "3415632839"
 };
 
 export const REDES = [

@@ -96,7 +96,6 @@ const icons = (icon: string) => {
 async function Footer() {
   const footerData: any = {
     footer: "Épica Rosario © 2023 - Todos los derechos reservados",
-    telefono: "+54 341 1234567",
     ubicacion: "Rosario, Argentina",
     redesSociales: REDES,
   };
@@ -104,7 +103,7 @@ async function Footer() {
   if (!footerData) return null;
   const {
     footer,
-    telefono,
+    telefono = PAGE_INFO.telefono,
     email = PAGE_INFO.email,
     ubicacion,
     logo,
@@ -115,7 +114,7 @@ async function Footer() {
     <footer className="overflow-hidden bg-primary text-beige px-8 pb-2 ">
       <div className="relative flex flex-col justify-between 2xl:container 2xl:mx-auto">
         <div className="footer-inner z-20 flex flex-col justify-between gap-4 h-full">
-          <Link href="#" className="">
+          <Link href="/" className="">
             <Image
               src={"/logo.png"}
               width={500}
@@ -134,7 +133,7 @@ async function Footer() {
                 <span className="button-text text-md md:text-xl">
                   {telefono}
                 </span>
-                <span className="button-text hidden">{telefono}</span>
+                <span className="button-text">{telefono}</span>
               </span>
             </div>
 
@@ -150,7 +149,7 @@ async function Footer() {
                     return (
                       <Link
                         href={item.link ?? "/#"}
-                        className="w-7 h-7 rounded-full border-1 border-[#dfd8cf1a] hover:opacity-70 flex justify-center bg-[#ec1c90] items-center transition-all duration-300 ease-in-out"
+                        className="w-7 h-7 rounded-full border-1 border-[#dfd8cf1a] hover:opacity-70 flex justify-center bg-[#ed2866] items-center transition-all duration-300 ease-in-out"
                         key={i}
                       >
                         {icons(item.label.toUpperCase())}
@@ -161,6 +160,9 @@ async function Footer() {
               </div>
 
               <span className="overflow-hidden flex flex-col">
+                <span className="button-text font-sans font-light uppercase text-xs md:text-md tracking-wide">
+                  {telefono}
+                </span>
                 <span className="button-text font-sans font-light uppercase text-xs md:text-md tracking-wide">
                   {email}
                 </span>

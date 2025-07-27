@@ -23,7 +23,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
     socialmedia = REDES,
     email = PAGE_INFO.email,
     imagen,
-    telefono = "3415807001",
+    telefono = PAGE_INFO.telefono,
     slogan,
   } = data;
 
@@ -85,7 +85,7 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
               href={`/${item.uid === "home" ? "" : item.uid}`}
               className="flex flex-row gap-2 text-black font-bold "
             >
-              <span className="decoration-[#ec1c90] decoration-3 hover:underline underline-offset-8">
+              <span className="decoration-[#ed2866] decoration-3 hover:underline underline-offset-8">
                 {item.data.title}
               </span>
               <span
@@ -119,10 +119,10 @@ export const Menu: FC<Props> = ({ open = false, items = [], data = {} }) => {
         <div className="grid grid-cols-2 items-center gap-2 md:gap-0 px-10 h-full">
           <div className="col-span-2 md:col-span-1 menu-footer__item text-xs font-sans text-green uppercase ">
             <ul className="grid grid-cols-2 gap-2">
-              {/* <li className="col-span-1">
+              <li className="col-span-1">
                 <h3 className="opacity-70">Teléfono</h3>
                 {telefono}
-              </li> */}
+              </li>
               <li className="col-span-1">
                 <h3 className="opacity-70">email</h3>
                 {email}

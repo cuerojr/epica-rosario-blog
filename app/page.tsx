@@ -26,6 +26,7 @@ import ArticleDate from "@/components/ArticleDate";
 import Footer from "@/components/footer";
 import ArticlesHomeContainer from "@/components/ArticlesHomeContainer";
 import EventMarquee from "@/components/marquee/marquee";
+import AdsButton from "@/components/ads/adsButton";
 
 type PageMetaParams = {
   data?: {
@@ -45,12 +46,15 @@ export default async function Home({ searchParams }: any) {
     console.log("Access Denied");
   }
 
+
   return (
     <>
       <Header />
       <main>
-        <section>
+        <section id="hero">
           <div className="container mx-auto px-0 md:p-10 mt-12 md:mt-16">
+            <AdsButton />
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 bg-black pb-5 md:p-10">
               {data.slice(0, 4).map((article, index) => {
                 if (index === 0)
@@ -65,15 +69,23 @@ export default async function Home({ searchParams }: any) {
         </section>
         <section>
           <div className="container mx-auto px-4 md:p-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6 p-0 md:p-10">
-              <h2 className="col-span-1 md:col-span-3 text-3xl text-[#ec1c90] font-black font-serif uppercase">
+            <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-5 mb-6 p-0 md:p-10">
+              <h2 className="h-10 col-span-1 md:col-span-3 text-3xl row-span-1 text-[#ed2866] font-black font-serif uppercase">
                 Últimas Noticias
               </h2>
-              <ArticlesHomeContainer data={data} />
+              
+              <div className="hidden md:block self-start col-span-1 md:col-start-3 row-start-2">
+                <AdsButton />
+              </div>
+              <div className="col-span-1 md:col-span-2 grid grid-cols-1 row-start-2">
+                <ArticlesHomeContainer data={data} />
+              </div>
               {/* {data.slice(4, 15).map((article, index) => {
               return <ArticleHomeCard key={article.id} article={article} />;
             })} */}
+            
             </div>
+            <AdsButton />
           </div>
         </section>
       </main>

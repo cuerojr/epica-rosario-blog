@@ -11,7 +11,7 @@ module.exports = {
 
   additionalPaths: async (config) => {
     // ⚡ Import dinámico porque next-sitemap corre en Node
-    const db = require("./lib/prisma"); // apunta al cliente Prisma JS
+    const db = require("./lib/prismajs"); // apunta al cliente Prisma JS
 
     // Traer todas las publicaciones
     const publicaciones = await db.post.findMany({

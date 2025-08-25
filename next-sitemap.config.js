@@ -5,7 +5,7 @@ const SITE_URL = "https://epicarosario.com.ar";
 module.exports = {
   siteUrl: SITE_URL,
   generateRobotsTxt: true,
-  changefreq: "weekly",
+  changefreq: "daily",
   priority: 0.7,
   sitemapSize: 5000,
 

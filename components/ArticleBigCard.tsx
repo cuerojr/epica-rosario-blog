@@ -43,7 +43,7 @@ export default function ArticleBigCard({ article }: any) {
             className="w-full h-full object-cover object-center"
             width={500}
             height={500}
-            loading="lazy"
+            loading="eager"
           />
           {/* <ImageCredit
             credit={article.imagen_fuente || ""}

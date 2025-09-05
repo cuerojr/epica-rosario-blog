@@ -24,7 +24,7 @@ module.exports = {
     return publicaciones.map((p) => ({
       loc: `/${p.slug}`,
       lastmod: p.updatedAt.toISOString(),
-      changefreq: "weekly",
+      changefreq: "daily",
       priority: 0.8,
     }));
   },

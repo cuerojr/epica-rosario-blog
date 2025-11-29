@@ -95,7 +95,7 @@ const icons = (icon: string) => {
 
 async function Footer() {
   const footerData: any = {
-    footer: "Épica Rosario © 2023 - Todos los derechos reservados",
+    footer: "Épica Rosario © 2025 - Todos los derechos reservados",
     ubicacion: "Rosario, Argentina",
     redesSociales: REDES,
   };

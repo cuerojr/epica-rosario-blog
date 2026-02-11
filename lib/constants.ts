@@ -2,8 +2,8 @@ import { Label } from "@radix-ui/react-label";
 import { link } from "fs";
 import { X } from "lucide-react";
 
-export const SITE_NAME = `Épica Rosario`;
-export const SITE_DESCRPTION = `Información y mucho más.`;
+export const SITE_NAME = `Épica Rosario portal de noticias de Rosario, Santa Fe, Argentina.`;
+export const SITE_DESCRPTION = `Información de la región, nacional para el mundo y mucho más.`;
 export const SITE_LANG = "es";
 export const SITE_URL =
   (process.env.NEXT_PUBLIC_SITE_URL?.startsWith("https://")

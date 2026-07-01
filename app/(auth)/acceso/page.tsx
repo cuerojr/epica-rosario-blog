@@ -19,7 +19,7 @@ export default async function LogIn() {
 
   return (
     <main>
-      <div className="container mx-auto mt-12 md:mt-16 md:max-w-[70vw] ">
+      <div className="container mx-auto mt-12 md:mt-16 text-center">
         <h2 className="font-bold text-2xl mt-10 pb-4 mx-auto">
           ¿Es tu primera vez en la plataforma? ¡Regístrate aquí!
         </h2>
@@ -29,7 +29,7 @@ export default async function LogIn() {
           </Button>
           <Link
             href={"/registro"}
-            className="bg-transparent text-black hover:text-blue-600 hover:bg-gray-200 font-bold py-2 px-4 rounded"
+            className="text-blue-600 hover:bg-gray-200 font-bold py-2 px-4 rounded"
           >
             Registrarme
           </Link>
@@ -37,8 +37,8 @@ export default async function LogIn() {
         <hr className="w-full position-absolute" />
         <div className="mt-10 text-center">
           <h2 className="font-bold text-2xl my-4 pb-4">Ingresar</h2>
-          {/* <LogInForm /> */}
-          <GoogleLoginButton />
+          <LogInForm />
+          {/*<GoogleLoginButton />*/}
         </div>
       </div>
     </main>

@@ -26,7 +26,7 @@ import ArticleDate from "@/components/ArticleDate";
 import Footer from "@/components/footer";
 import ArticlesHomeContainer from "@/components/ArticlesHomeContainer";
 import EventMarquee from "@/components/marquee/marquee";
-import AdsButton from "@/components/ads/AdsButton";
+import AdsButton from "@/components/ads/adsButton";
 
 type PageMetaParams = {
   data?: {

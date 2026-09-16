@@ -26,7 +26,7 @@ import ArticleDate from "@/components/ArticleDate";
 import Footer from "@/components/footer";
 import ArticlesHomeContainer from "@/components/ArticlesHomeContainer";
 import EventMarquee from "@/components/marquee/marquee";
-import AdsButton from "@/components/ads/adsButton";
+import AdsButton from "@/components/ads/AdsButton";
 
 type PageMetaParams = {
   data?: {
@@ -41,7 +41,7 @@ type PageMetaParams = {
 const getCachedEncuesta = cache(async () => await getAllPosts());
 
 export default async function Home({ searchParams }: any) {
-  const data = await getCachedEncuesta();
+  const data = await getAllPosts();
   if (searchParams.error === "AccessDenied") {
     console.log("Access Denied");
   }
@@ -55,8 +55,8 @@ export default async function Home({ searchParams }: any) {
           <div className="container mx-auto px-0 md:p-10 mt-12 md:mt-16">
             <AdsButton />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 bg-black pb-5 md:p-10">
-              {data.slice(0, 4).map((article, index) => {
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 bg-black pb-5 md:p-10 mt-8">
+              {data?.slice(0, 4).map((article, index) => {
                 if (index === 0)
                   return <ArticleBigCard key={article.id} article={article} />;
                 return <ArticleCard key={article.id} article={article} />;
@@ -65,7 +65,7 @@ export default async function Home({ searchParams }: any) {
           </div>
         </section>
         <section>
-          <EventMarquee posts={data.slice(0, 4)} />
+          <EventMarquee posts={data?.slice(0, 4) ?? []} />
         </section>
         <section>
           <div className="container mx-auto px-4 md:p-10">

@@ -18,7 +18,7 @@ export default async function CreatePost() {
 
   return (
     <main className="container mx-auto">
-      <h2 className="text-xl md:text-2xl my-4">Acá podés crear un nuevo post</h2>
+      <h2 className="text-xl md:text-2xl my-4">Acá podés crear un nuevo post - Paso 1</h2>
       <section className="">
         <FormCreatePost user={session.user as User} categorias={categorias} />
       </section>

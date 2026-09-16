@@ -82,6 +82,7 @@ export async function getAllPosts() {
     return response;
   } catch (error: any) {
     console.log(error);
+    return null;
     throw Error("Error getEncuesta", error);
   }
 }

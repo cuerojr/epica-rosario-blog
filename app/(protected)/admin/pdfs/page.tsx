@@ -11,7 +11,7 @@ import { cache } from "react";
 import ArticleHomeCard from "@/components/ArticleHomeCard";
 import Link from "next/link";
 
-const getCachedPDFFiles = cache(async () => await getAllPDF());
+const getCachedPDFFiles = cache(async () => await getAllPDF() || []);
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);  

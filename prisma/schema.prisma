@@ -7,7 +7,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   //url      = env("DATABASE_URL")
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  url       = env("POSTGRES_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
@@ -26,6 +26,10 @@ model Post {
   bajada        String?
   cuerpo        String?
   imagen        String?
+  imagen2        String?
+  imagen3        String?
+  imagen4        String?
+  imagen5        String?
   slug          String?       @unique
   createdBy     User          @relation(fields: [createdById], references: [id])
   createdById   String

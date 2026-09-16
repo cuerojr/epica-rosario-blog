@@ -6,7 +6,7 @@ import ArticleDate from "./ArticleDate";
 import { CldImage } from "next-cloudinary";
 
 export default function ArticlesHomeContainer({ data }: { data: any }) {
-  return data.slice(4, 15).map((article: any, index: number) => {
+  return data?.slice(4, 15).map((article: any, index: number) => {
     return (
       <ArticleHomeCard
         key={article.id}

@@ -51,9 +51,9 @@ export default function UploadForm({ user }: { user?: User }) {
     },
   });
 
-  const handleUpload = async (): Promise<string | null> => {
+  const handleUpload = async ({ type = "application/pdf" }: { type: string }): Promise<string | null> => {
     if (!file) return null;
-    if (file.type !== "application/pdf") return null;
+    if (file.type !== type) return null;
 
     const formData = new FormData();
     formData.append("file", file);
@@ -72,11 +72,10 @@ export default function UploadForm({ user }: { user?: User }) {
   };
 
   const onSubmit = async (value: any) => {
-    console.log("🚀 ~ onSubmit ~ value:", value)
     setIsLoading(true);
 
     try {
-      const uploadedUrl = await handleUpload();
+      const uploadedUrl = await handleUpload({ type: "application/pdf" });
 
       if (!file) {
         toast({

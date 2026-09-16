@@ -107,6 +107,10 @@ export default function FormCreatePost({
       bajada,
       cuerpo,
       imagen: null,
+      imagen2: null,
+      imagen3: null,
+      imagen4: null,
+      imagen5: null,
       endDate: new Date("2026-12-31T00:00:00.000Z"), // formato ISO
       isActive: true,
       hasEnded: false,
@@ -148,7 +152,7 @@ export default function FormCreatePost({
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gray-200">
-              <span className="text-gray-500">No hay imagen cargada</span>
+              <span className="text-gray-500">Cargar imagen en paso 2</span>
             </div>
           )}
         </div>
@@ -282,7 +286,7 @@ export default function FormCreatePost({
                 />
               </div>
             </div>
-            <Button type="submit" className="w-full bg-[var(--magenta)]">
+            <Button type="submit" className="w-full bg-[#28C2ED]">
               Guardar
             </Button>
           </form>

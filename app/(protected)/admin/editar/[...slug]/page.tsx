@@ -29,9 +29,9 @@ export default async function EditPost({
   return (
     <main className="container mb-10 mx-auto">
       <div className="flex items-center justify-between my-4">
-        <h2 className="text-xl md:text-2xl">Acá podés editar tu post</h2>
-        <Button variant="outline" className="" asChild>
-          <Link target="_blank" href={`/${techSlug}`} className="flex items-center gap-2">
+        <h2 className="text-xl md:text-2xl">Acá podés editar tu post- Paso 2</h2>
+        <Button variant="outline" className="border-2 border-black rounded-none" asChild>
+          <Link target="_blank" href={`/${techSlug}`} className="flex items-center gap-2 ">
             Ver post
           </Link>
         </Button>

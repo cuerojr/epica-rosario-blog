@@ -8,6 +8,7 @@ import FormEditPost from "./FormEditPost";
 import { deletesPost } from "@/lib/actions";
 import { toast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
 
 type Props = {
   user: User;
@@ -46,9 +47,9 @@ export default function EditPostClient({ user, data, categorias }: Props) {
       </section>
 
       <section className="mt-6">
-        <button
+        <Button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 border-2 border-black rounded-none hover:bg-red-700"
         >
           Eliminar{" "}
           <svg
@@ -67,7 +68,7 @@ export default function EditPostClient({ user, data, categorias }: Props) {
             <path d="M14 2v4a2 2 0 0 0 2 2h4" />
             <path d="M9 15h6" />
           </svg>
-        </button>
+        </Button>
 
         <DeletePostModal
           postId={data.id}

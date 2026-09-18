@@ -55,7 +55,7 @@ export default async function Home({ searchParams }: any) {
           <div className="container mx-auto px-0 md:p-10 mt-12 md:mt-16">
             <AdsButton />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 bg-black pb-5 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 bg-black pb-5 md:p-10 rounded-xl">
               {data.slice(0, 4).map((article, index) => {
                 if (index === 0)
                   return <ArticleBigCard key={article.id} article={article} />;

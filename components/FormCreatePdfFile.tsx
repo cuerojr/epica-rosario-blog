@@ -72,7 +72,7 @@ export default function UploadForm({ user }: { user?: User }) {
   };
 
   const onSubmit = async (value: any) => {
-    console.log("🚀 ~ onSubmit ~ value:", value)
+    
     setIsLoading(true);
 
     try {

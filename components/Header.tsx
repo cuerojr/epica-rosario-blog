@@ -9,6 +9,7 @@ const pages = [
   { uid: "", data: { title: "Inicio" } },
   { uid: "nosotros", data: { title: "Nosotros" } },
   { uid: "laboratorio-estadistico-del-delito", data: { title: "LED" } },
+  { uid: "laboratorio-de-economia-santafesina", data: { title: "LES" } },
 ];
 
 // type HeaderProps = {

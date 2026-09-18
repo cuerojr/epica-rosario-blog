@@ -52,7 +52,7 @@ export default function AdminDropDown({
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link href={"/admin/pdfs"} className="cursor-pointer w-[100%]">
-                LED Pdfs
+                LED/LES Pdfs
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />

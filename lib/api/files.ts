@@ -42,6 +42,7 @@ export async function getAllPDF() {
     },
   });
 }
+
 export async function updatePost(postId: string, data: any) {
   return await db.file.update({
     where: {

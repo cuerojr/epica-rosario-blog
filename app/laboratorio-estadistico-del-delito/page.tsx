@@ -26,7 +26,7 @@ export default async function LaboratorioEstadisticoDelDelito() {
             la situación delictiva en nuestra ciudad.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {pdfs.map((pdf) => (
+            {pdfs?.map((pdf) => (
               <PdfViewer key={pdf.id} name={pdf.name} url={pdf.url} pdfDate={pdf.createdAt} />
             ))}
           </div>

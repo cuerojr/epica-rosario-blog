@@ -15,12 +15,16 @@ export default function PdfViewer({
   const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(
     url
   )}&embedded=true`;
+
+  const date = pdfDate ? new Date(pdfDate) : null;
+  const formattedDate =
+    date && !isNaN(date.getTime()) ? date.toLocaleDateString() : "";
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-semibold mb-4">
         {name}
       </h2>
-      <p className="text-sm text-gray-500">{pdfDate?.toLocaleDateString()}</p>
+      <p className="text-sm text-gray-500">{formattedDate}</p>
       <iframe
         src={viewerUrl}
         className="w-full h-96 mb-4"

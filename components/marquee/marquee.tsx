@@ -42,16 +42,16 @@ export default function EventMarquee({ posts }: { posts: any[] }) {
   if (posts.length < 2) return;
 
   return (
-    <div className="my-reel py-4" ref={reelRef}>
+    <div className="my-reel py-4 bg-[#ed2866]" ref={reelRef}>
       <div className="my-reel-wrap flex gap-5">
         {posts.map((post) => (
           <div className="my-reel-item whitespace-nowrap" key={post.id}>
             <div className="text-2xl md:text-5xl gradient-marquee hover:text-white transition-colors text-stroke uppercase">
               <Link
                 href={`/${post.slug}`}
-                className="flex gap-2 items-end hover:text-[#ed2866] "
+                className="flex gap-2 items-end hover:text-white "
               >
-                <span className="font-black">
+                <span className="font-black tracking-tight">
                   {post.titulo}
                 </span>
                 <span className="ml-2 font-black">/</span>

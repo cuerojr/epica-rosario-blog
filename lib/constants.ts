@@ -52,6 +52,6 @@ export const REDES = [
 ];
 
 export const anuncios = [
-  { id: 1, imagen: { banner: "/ads/banner_ey.gif", cuadrado: "/ads/ey.gif" }, href: "https://www.eytickets.ar/", alt: "Cliente 1" },
+  { id: 1, imagen: { banner: "/ads/banner_ey.gif", cuadrado: "/ads/ey.gif" }, href: 'https://www.eytickets.ar/?ref="epica_banner"', alt: "Cliente 1" },
   { id: 2, imagen: { banner: "/ads/d3_banner_1920x144.png", cuadrado: "/ads/d3_cuadrada_740x740.png" }, href: "https://www.instagram.com/estudiod3rosario/", alt: "Cliente 2" },
 ];

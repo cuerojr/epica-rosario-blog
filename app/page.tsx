@@ -14,7 +14,7 @@ import { notFound } from "next/dist/client/components/not-found";
 
 import { getAllPosts } from "@/lib/actions";
 
-import { SITE_DESCRPTION, SITE_NAME } from "@/lib/constants";
+import { anuncios, SITE_DESCRPTION, SITE_NAME } from "@/lib/constants";
 import { asImageSrc, isFilled } from "@/utils/metada-helper";
 import ArticleBigCard from "@/components/ArticleBigCard";
 import ArticleCard from "@/components/ArticleCard";
@@ -27,6 +27,7 @@ import Footer from "@/components/footer";
 import ArticlesHomeContainer from "@/components/ArticlesHomeContainer";
 import EventMarquee from "@/components/marquee/marquee";
 import AdsButton from "@/components/ads/adsButton";
+import AdsSlider from "@/components/ads/adsButton";
 
 type PageMetaParams = {
   data?: {
@@ -53,7 +54,7 @@ export default async function Home({ searchParams }: any) {
       <main>
         <section id="hero">
           <div className="container mx-auto px-0 md:p-10 mt-12 md:mt-16">
-            <AdsButton />
+            <AdsSlider anuncios={anuncios} />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 bg-black pb-5 md:p-10 rounded-xl">
               {data.slice(0, 4).map((article, index) => {
@@ -75,7 +76,7 @@ export default async function Home({ searchParams }: any) {
               </h2>
               
               <div className="hidden md:block self-start col-span-1 md:col-start-3 row-start-2">
-                <AdsButton cuadrado={true} />
+                <AdsSlider anuncios={anuncios} cuadrado={true} />
               </div>
               <div className="col-span-1 md:col-span-2 grid grid-cols-1 row-start-2">
                 <ArticlesHomeContainer data={data} />
@@ -85,7 +86,7 @@ export default async function Home({ searchParams }: any) {
             })} */}
             
             </div>
-            <AdsButton />
+            <AdsSlider anuncios={anuncios} />
           </div>
         </section>
       </main>

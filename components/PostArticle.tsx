@@ -8,6 +8,8 @@ import { CldImage } from "next-cloudinary";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Post } from "@prisma/client";
+import AdsSlider from "./ads/adsButton";
+import { anuncios } from "@/lib/constants";
 
 const redesSociales: string[] = [
   'Whatsapp',
@@ -35,8 +37,8 @@ export default function PostArticle(article: Post) {
 
   return (
     <section>
-      <article className="md:max-w-[65rem] mx-auto flex flex-col gap-4 mt-10 font-serif">
-        <div className="flex flex-col-reverse md:flex-row gap-10">
+      <article className="md:max-w-5xl mx-auto flex flex-col gap-4 mt-10 font-serif">
+        <div className="flex flex-col-reverse md:flex-row gap-10 mb-10">
           <div className="w-full md:w-1/2 aspect-square overflow-hidden relative bg-black rounded-lg">
             <CldImage
               src={
@@ -68,7 +70,8 @@ export default function PostArticle(article: Post) {
             </div>
           </div>
         </div>
-        <div className="max-w-[800px] mx-auto flex flex-col gap-4 my-20">
+          <AdsSlider anuncios={anuncios} />
+        <div className="md:max-w-4xl mx-auto flex flex-col gap-4 my-14">
           <div
             className="space-y-4 md:text-xl text-justify"
             dangerouslySetInnerHTML={{ __html: htmlOutput }}
